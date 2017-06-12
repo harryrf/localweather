@@ -48,3 +48,10 @@ body {
   max-height: 40px;
   color: #fff;
 }
+
+
+/* Used for current view of forecast */
+
+.climaLarge {
+  font-size: 8em;
+}
