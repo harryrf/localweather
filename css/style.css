@@ -2,29 +2,20 @@ body {
   color: aliceblue;
   background-color: #333;
   text-align: center;
-  /*  font-family: 'IM Fell French Canon SC', serif;*/
-  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 100%;
 }
 
 .mainHeader {
-  font-size: 4em !important;
+  font-size: 5em;
 }
 
 .weatherSection {
-  margin-top: 10px;
-}
-
-#currentHeader {
-  margin-bottom: 20px;
-}
-
-#conditionIcon {
-  height: 64px;
-  height: 64px;
+  margin-top: 5px;
 }
 
 #temp {
-  font-size: 2em;
+  margin-top: -60px;
 }
 
 .info,
@@ -52,6 +43,28 @@ body {
 
 /* Used for current view of forecast */
 
-.climaLarge {
-  font-size: 8em;
+#conditionText {
+  font-size: 4em;
+  margin-top: 10px;
 }
+
+.climaLarge {
+  font-size: 20em;
+}
+
+.textLarge {
+  font-size: 12em;
+}
+
+.textMedium {
+  font-size: 1.60em;
+  margin-bottom: 6px;
+}
+
+.extraInfo {
+  border-top: 2px solid rgba(240, 248, 255, 0.375);
+  padding-top: 30px;
+}
+
+
+/* for testing without API */

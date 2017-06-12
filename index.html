@@ -6,7 +6,7 @@
   <title>Current Weather</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" href="climacons/webfont/climacons-font.css">
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <script src="js/jquery-3.2.1.min.js"></script>
@@ -33,27 +33,46 @@
 
         <div class="row">
           <div class="col-xs-12 mainHeader">
-            <h3 id="userLoc"></h3>
+            <div id="userLoc"></div>
           </div>
         </div>
 
         <div class="col-xs-12 weatherSection">
           <div class="row">
             <div class="col-xs-12">
-              <h3 id="currentHeader">Current Weather</h3>
+              <div id="conditionText"></div>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
-              <div id="currentConditionIcon"></div>
-            </div>
-            <div class="col-xs-6">
-              <div id="temp"></div>
+            <div class="col-xs-12">
+              <div id="currentConditionIcon">
+              </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-6">
-              <div id="feelsLike"></div>
+            <div class="col-xs-12">
+              <div id="temp" class="textLarge">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <div id="feelsLike" class="textMedium"></div>
+            </div>
+            <div class="col-xs-3">
+              <div id="humidity" class="textMedium"></div>
+            </div>
+            <div class="col-xs-3">
+              <div id="maxTemp" class="textMedium"></div>
+            </div>
+            <div class="col-xs-3">
+              <div id="minTemp" class="textMedium"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 extraInfo">
+
+
             </div>
           </div>
         </div>

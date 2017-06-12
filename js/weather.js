@@ -12,13 +12,20 @@ $(document).ready(function () {
   $.getJSON("https://ipinfo.io/json", function (location) {
 
     var coords = location.loc;
-    var api = "https://api.apixu.com/v1/current.json?&key=49f97e05d5144c9c829185418170806&q=" + coords;
+    var api = "https://api.apixu.com/v1/forecast.json?key=49f97e05d5144c9c829185418170806&q=" + coords + "&days=3";
+
+    // coordinates gathered from ipinfo.io
+    // it's more precise
+    $("#userLoc").html(location.city + ", " + location.region);
+
     // weather API
     $.getJSON(api, function (geo) {
 
       var location = geo.location;
       var current = geo.current;
       var condition = geo.current.condition;
+      var forecastday = geo.forecast.forecastday[0].day;
+
       var is_day = geo.current.is_day;
       var cCode = geo.current.condition.code;
       var icon = "";
@@ -279,12 +286,20 @@ $(document).ready(function () {
         }
       }
 
+      // Current top
+      $("#conditionText").html(condition.text);
       $("#currentConditionIcon").append("<div class='climaLarge " + icon + "'></div>");
-      // $("#currentConditionIcon").prepend("<img id='conditionIcon' src='https:" + condition.icon + "' alt='' /> <br/>" + condition.text);
       $("#temp").html(current.temp_f + "&#8457;");
-      $("#feelsLike").html("Feels like: " + current.feelslike_f + "&#8457;");
+
+      // Current bottom
+      $("#feelsLike").html("Feels like " + current.feelslike_f + "&#8457;");
+      $("#humidity").html("Humidity " + current.humidity + "&#37;");
+      $("#maxTemp").html("High " + forecastday.maxtemp_f + "&#8457;");
+      $("#minTemp").html("Low " + forecastday.mintemp_f + "&#8457;");
+
+
     });
 
-    $("#userLoc").html("Weather for " + location.city + ", " + location.region + ".");
   });
+
 });
