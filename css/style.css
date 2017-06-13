@@ -58,12 +58,12 @@ body {
 
 .textMedium {
   font-size: 1.60em;
+  margin-top: 6px;
   margin-bottom: 6px;
 }
 
 .extraInfo {
   border-top: 2px solid rgba(240, 248, 255, 0.375);
-  padding-top: 30px;
 }
 
 

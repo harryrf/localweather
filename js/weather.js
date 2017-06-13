@@ -30,6 +30,15 @@ $(document).ready(function () {
       var cCode = geo.current.condition.code;
       var icon = "";
 
+      // check how much total precipitation will
+      // occur in today's 24 hours
+      var hoursToday = geo.forecast.forecastday[0].hour;
+      var totalRain_in = 0;
+
+      for (i = 0; i < hoursToday.length; i++) {
+        totalRain_in += hoursToday[i].precip_in;
+      }
+
       // check if is_day == 1 (day) 
       // then check the conidition and set
       // icon based on the day conditions.
@@ -292,11 +301,15 @@ $(document).ready(function () {
       $("#temp").html(current.temp_f + "&#8457;");
 
       // Current bottom
-      $("#feelsLike").html("Feels like " + current.feelslike_f + "&#8457;");
-      $("#humidity").html("Humidity " + current.humidity + "&#37;");
-      $("#maxTemp").html("High " + forecastday.maxtemp_f + "&#8457;");
-      $("#minTemp").html("Low " + forecastday.mintemp_f + "&#8457;");
 
+      $("#feelsLike").html("Feels like " + current.feelslike_f + "&#8457;");
+      $("#humidity").html("Humidity: " + current.humidity + "&#37;");
+      $("#maxTemp").html("High: " + forecastday.maxtemp_f + "&#8457;");
+      $("#minTemp").html("Low: " + forecastday.mintemp_f + "&#8457;");
+
+      // Extra info
+
+      $("#totalRain").html("Rain: " + totalRain_in + "\"");
 
     });
 
