@@ -7,18 +7,24 @@ body {
 }
 
 .mainHeader {
-  font-size: 5em;
+  margin-top: 50px;
 }
 
 .weatherSection {
   margin-top: 5px;
 }
 
-#temp {
-  margin-top: -60px;
+.climaLarge {
+  font-size: 30em;
+  margin-top: -100px;
+  margin-bottom: -135px;
 }
 
-.info,
+footer {
+  padding: 50px 0px;
+}
+
+.contact,
 .credits {
   margin-top: 10px;
   text-align: center;
@@ -29,7 +35,7 @@ body {
   font-size: 1.5em !important;
 }
 
-.info a,
+.contact a,
 .credits a {
   text-decoration: none !important;
   color: #fff;
@@ -43,13 +49,12 @@ body {
 
 /* Used for current view of forecast */
 
-#conditionText {
-  font-size: 4em;
-  margin-top: 10px;
+#currentConditionIcon {
+  margin-top: -50px;
 }
 
-.climaLarge {
-  font-size: 20em;
+#currentConditionText {
+  margin-top: 10px;
 }
 
 .textLarge {
@@ -57,6 +62,10 @@ body {
 }
 
 .textMedium {
+  font-size: 4em;
+}
+
+.textSmall {
   font-size: 1.60em;
   margin-top: 6px;
   margin-bottom: 6px;

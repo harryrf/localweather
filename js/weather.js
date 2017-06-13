@@ -31,7 +31,7 @@ $(document).ready(function () {
       var icon = "";
 
       // check how much total precipitation will
-      // occur in today's 24 hours
+      // occur in current day's 24 hours
       var hoursToday = geo.forecast.forecastday[0].hour;
       var totalRain_in = 0;
 
@@ -296,7 +296,7 @@ $(document).ready(function () {
       }
 
       // Current top
-      $("#conditionText").html(condition.text);
+      $("#currentConditionText").html(condition.text);
       $("#currentConditionIcon").append("<div class='climaLarge " + icon + "'></div>");
       $("#temp").html(current.temp_f + "&#8457;");
 

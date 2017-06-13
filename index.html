@@ -30,19 +30,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
-
         <div class="row">
           <div class="col-xs-12 mainHeader">
-            <div id="userLoc"></div>
+            <div id="userLoc" class="textMedium"></div>
           </div>
         </div>
-
         <div class="col-xs-12 weatherSection">
-          <div class="row">
-            <div class="col-xs-12">
-              <div id="conditionText"></div>
-            </div>
-          </div>
           <div class="row">
             <div class="col-xs-12">
               <div id="currentConditionIcon">
@@ -51,28 +44,33 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
+              <div id="currentConditionText" class="textMedium"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
               <div id="temp" class="textLarge">
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-xs-3">
-              <div id="feelsLike" class="textMedium"></div>
+              <div id="feelsLike" class="textSmall"></div>
             </div>
             <div class="col-xs-3">
-              <div id="humidity" class="textMedium"></div>
+              <div id="humidity" class="textSmall"></div>
             </div>
             <div class="col-xs-3">
-              <div id="maxTemp" class="textMedium"></div>
+              <div id="maxTemp" class="textSmall"></div>
             </div>
             <div class="col-xs-3">
-              <div id="minTemp" class="textMedium"></div>
+              <div id="minTemp" class="textSmall"></div>
             </div>
           </div>
           <div class="row">
-            <div class="extraInfo">
-              <div class="col-xs-3 textMedium" id="totalRain"></div>
-            </div>
+            <div class="extraInfo"></div>
+            <div class="col-xs-3 textSmall" id="totalRain"></div>
           </div>
         </div>
 
@@ -80,12 +78,17 @@
     </div>
   </div>
 
-  <!-- 
-  <div class="info"><a href="https://github.com/harryrf">harryrf3</a> &copy; 2017</div>
+
   <footer class="credits">
-    <a href="http://adamwhitcroft.com/climacons/" target="_blank"><span class="climacon lightning sun climaLogo"></span>Climacons</a><br/>
+
+    <span>Powered by</span><br/>
+    <a href="http://adamwhitcroft.com/climacons/" target="_blank"><span class="climacon lightning sun climaLogo"></span>Climacons</a>
+    <span>&nbsp;&amp;&nbsp;</span>
+    <a href="http://apixu.com/" target="_blank">APIxu</a><br/>
+    <span class="contact"><a href="https://github.com/harryrf" target="_blank">harryrf3</a> &copy; 2017</span>
+
   </footer>
- -->
+
   <script src="js/bootstrap.min.js"></script>
   <!-- External Bootstrap 3.3.7 JS
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
