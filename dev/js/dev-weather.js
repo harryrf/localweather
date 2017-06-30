@@ -1,31 +1,38 @@
-// Live page available @ bit.ly/hf-localweather
+// HTTP and HTTPs are interchangable for these API's
+// Use HTTP for offline editing
+// Use HTTPS for online editing
+
+// &#8451; = degrees Celsius
+// &#8457; = degrees Fahrenheit
 
 $(document).ready(function () {
+  // Use this one for location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var coords = position.coords.latitude + "," + position.coords.longitude;
 
-  $.ajax({
-    url: "https://geoip-db.com/jsonp",
-    jsonpCallback: "callback",
-    dataType: "jsonp",
-    success: function (location) {
-      var city = location.city;
-      var state = location.state;
-      var country = location.country;
-      var coords = location.latitude + ", " + location.longitude;
-
-      // Location
-      if (city === null && state !== null) {
-        $("#userLoc").html(state);
-      } else if (state === null) {
-        $("#userLoc").html(country);
-      } else {
-        $("#userLoc").html(city);
-      }
+      // *NOTE: Change location API to browser, this one is off
+      // location API
+      //  $.getJSON("https://ipinfo.io/json", function (location) {
+      //var coords = location.loc;
 
       // Live API
       api =
         "https://api.apixu.com/v1/forecast.json?key=49f97e05d5144c9c829185418170806&q=" +
         coords +
         "&days=3";
+
+      devapi =
+        "http://192.168.1.10:8080/projects/localweather/dev/json/dev-3-day-forecast.json";
+
+      // Location
+
+      $("#userLoc").html(location.name);
+
+      // coordinates gathered from ipinfo.io
+      // it's more precise
+
+      // #### ALL CONTENT BELOW THIS LINE WILL GO INTO LIVE WEATHER.JS FILE ####
 
       // weather API
       $.getJSON(api, function (geo) {
@@ -36,6 +43,18 @@ $(document).ready(function () {
         astro = geo.forecast.forecastday[0].astro;
         is_day = geo.current.is_day;
         cCode = geo.current.condition.code;
+
+        //    NO LONGER NEEDED, just proud of it
+        //
+        //    check how much total precipitation will
+        //    occur in current day 's 24 hours
+        //    var hoursToday = geo.forecast.forecastday[0].hour;
+        //    var totalRain_in = 0;
+        //    // After testing, this keeps adding to totalRain_in
+        //    // day after day and never resets. Needs fixed.
+        //    for (i = 0; i < hoursToday.length; i++) {
+        //      totalRain_in += hoursToday[i].precip_in;
+        //    }
 
         // check if is_day == 1 (day)
         // then check the conidition and set
@@ -318,6 +337,7 @@ $(document).ready(function () {
             totalprecip = Math.round(forecastday.totalprecip_in) + " IN";
 
             fahrenheit = false;
+
           } else {
             // current temp
             temp = Math.round(current.temp_c) + "&#8451;";
@@ -334,6 +354,7 @@ $(document).ready(function () {
             totalprecip = Math.round(forecastday.totalprecip_mm / 100) + " CM";
 
             fahrenheit = true;
+
           }
 
           // Current Weather
@@ -360,6 +381,8 @@ $(document).ready(function () {
           $("#sunset").html(astro.sunset);
           $("#moonrise").html(astro.moonrise);
           $("#moonset").html(astro.moonset);
+
+          //          return fahrenheit;
         } // end changeUnit();
 
         changeUnit();
@@ -367,7 +390,8 @@ $(document).ready(function () {
         $(".changeUnit").on("click", function () {
           changeUnit();
         });
-      });
-    }
-  });
-});
+
+      }); // getJSON
+    }); // nav func
+  } // nav if
+}); // doc ready
